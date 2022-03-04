@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lj.mybatis.dao.StudentDao">
+
+
+    <!--parameterType:指定dao接口形参的类型
+                    这个属性的值可以使用java类型的全限定名称或者mybatis定义的别名
+    -->
+    <!--使用insert,update,delete,select标签写sql-->
+    <select id="selectStudentById" parameterType="java.lang.Integer"
+            resultType="student">
+        select id,name,email,age from student where id=#{id}
+    </select>
+
+    <select id="selectByName" resultType="com.lj.mybatis.domain.Student">
+        select * from student where name=#{name}
+    </select>
+
+    <!--
+        多个简单类型的参数,
+        当使用了@Param命名后，例如@Param("myname")
+        在mapper中，使用#{命名的参数}，例如#{myname}
+    -->
+    <select id="selectByNameOrAge" resultType="com.lj.mybatis.domain.Student">
+        select * from student where name=#{name} or age=#{age}
+    </select>
+
+
+    <!--
+        一个java对象作为方法的参数，使用对象的属性作为参数值使用
+        简单的语法：#{属性名} ， mybatis调用此属性的getxxx()方法获取属性值
+    -->
+    <select id="selectByObject" resultType="com.lj.mybatis.domain.Student">
+        select * from student where name=#{name} or age=#{age}
+    </select>
+
+    <!--
+        使用位置获取参数值，dao接口是多个简单类型的参数
+        语法： #{arg0} , #{arg1}.....
+    -->
+    <select id="selectByPosition" resultType="com.lj.mybatis.domain.Student">
+        select * from student where name=#{arg0} or age=#{arg1}
+    </select>
+
+
+
+    <!--更新-->
+    <update id="updateStudent">
+        update student set name=#{name} ,email=#{email} where id=#{id}
+    </update>
+
+
+    <!--排序-->
+    <select id="queryStdudentOrderById" resultType="com.lj.mybatis.domain.Student">
+        select * from student order by id
+    </select>
+
+
+    <select id="queryStdudentOrderByColName" resultType="com.lj.mybatis.domain.Student">
+        select * from student where age>#{age} order by ${name} desc
+    </select>
+</mapper>
+

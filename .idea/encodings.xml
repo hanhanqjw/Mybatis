@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/myb1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myb2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myb3-proxy-dao/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myb4-parameter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myb5-result/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/myb6-dynamic-sql/src/main/java" charset="UTF-8" />
+  </component>
+</project>
